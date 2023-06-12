@@ -6,10 +6,7 @@ import LogoWhite from "../../../public/TTR-white.png"
 
 export default function SignIn() {
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-[#fbf6ee]">
@@ -64,7 +61,7 @@ export default function SignIn() {
           <button
             disabled={isLoading}
             className={`${isLoading
-                ? "cursor-not-allowed border-gray-200 bg-gray-100"
+                ? "cursor-not-allowed"
                 : "border-black bg-black text-white hover:bg-white hover:text-black"
               } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
           >
@@ -73,9 +70,20 @@ export default function SignIn() {
           <p className="text-center text-sm text-gray-600">
           Don't have an account?{" "}
           <Link href="/signup" className="font-semibold text-gray-800">
-            Sign up
+            Sign Up
           </Link>{" "}
         </p>
+        <p className="text-center text-sm text-gray-600">OR</p>
+        <button
+        disabled={isLoading}
+        className={`${
+          isLoading
+            ? 'cursor-not-allowed'
+            : 'border-black bg-black text-white hover:bg-white hover:text-black'
+        } flex h-10 w-2/4 items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
+      >
+        <p>Sign In with Google</p>
+      </button>
         </form>
       </div>
     </div>
