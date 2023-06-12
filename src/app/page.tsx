@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Logo from "../../public/TTR.png"
+import LogoColored from "../../public/TTR-colored.png"
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         </div>
         <Link href="/">
           <Image
-            src={Logo}
+            src={LogoColored}
             alt="Logo"
             className="rounded-full"
             height={180}
