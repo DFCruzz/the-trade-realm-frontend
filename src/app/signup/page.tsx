@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import LogoWhite from "../../../public/TTR-white.png"
+import { signIn } from "next-auth/react"
 
 export default function SignIn() {
 
@@ -21,7 +22,7 @@ export default function SignIn() {
               height={56}
             />
           </Link>
-          <h3 className="text-xl font-semibold text-[#fbf6ee]">Sign In</h3>
+          <h3 className="text-xl font-semibold text-[#fbf6ee]">Sign Up</h3>
           <p className="text-sm text-[#7a7256]">
             Create an account with your email and password
           </p>
@@ -62,8 +63,8 @@ export default function SignIn() {
             disabled={isLoading}
             className={`${isLoading
               ? "cursor-not-allowed"
-              : "border-black bg-black text-white hover:bg-white hover:text-black"
-              } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
+              : "border-[#7a7256] bg-[#262626] text-[#dedacf] hover:bg-[#fbf6ee] hover:text-[#262626]"
+              } flex font-semibold h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
           >
             <p>Sign Up</p>
           </button>
@@ -74,16 +75,22 @@ export default function SignIn() {
             </Link>{" "}
           </p>
           <p className="text-center text-sm text-gray-600">OR</p>
+        </form>
+        <div className="flex flex-col items-center space-y-4 bg-[#fbf6ee]px-4 -mt-6 sm:px-16" >
           <button
             disabled={isLoading}
+            onClick={() => {
+              setIsLoading(true)
+              signIn("google")
+            }}
             className={`${isLoading
-              ? 'cursor-not-allowed'
-              : 'border-black bg-black text-white hover:bg-white hover:text-black'
-              } flex h-10 w-2/4 items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
+              ? "cursor-not-allowed"
+              : "border-[#7a7256] bg-[#262626] text-[#dedacf] hover:bg-[#fbf6ee] hover:text-[#262626]"
+              } flex font-semibold h-10 w-2/4 mb-5 items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
           >
             <p>Sign In with Google</p>
           </button>
-        </form>
+        </div>
       </div>
     </div>
   )
